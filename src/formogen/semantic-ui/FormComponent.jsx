@@ -34,7 +34,10 @@ FormComponent.propTypes = {
     PropTypes.element,
     PropTypes.instanceOf(React.Component)
   ]),
-  onSubmit: PropTypes.func,
+  onSubmit: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.bool
+  ]),
 };
 FormComponent.defaultProps = {
   loading: false,
@@ -69,13 +72,15 @@ export function FormComponent(props) {
           </Grid>
         ) }
       </div>
-      <SubmitComponent
-        type='submit'
-        content='Submit'
-        fluid={ true }
+      { props.onSubmit && (
+        <SubmitComponent
+          type='submit'
+          content='Submit'
+          fluid={ true }
 
-        onSubmit={ props.onSubmit }
-      />
+          onSubmit={ props.onSubmit }
+        />
+      ) }
     </SUIForm>
   );
 }
