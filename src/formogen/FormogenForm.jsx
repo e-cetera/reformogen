@@ -66,7 +66,7 @@ export class FormogenForm extends Component {
   
     return (
       <FormComponent 
-        formId={ this.formId } 
+        formId={ this.props.formId }
         loading={ this.props.loading } 
         title={ this.props.metaData.title }
         isTitleVisible={ this.props.isTitleVisible }
@@ -81,14 +81,14 @@ export class FormogenForm extends Component {
 
   renderFieldsets() {
     const fieldsets = unfoldWildcardFieldsets(
-      this.props.metaData.fields, 
+      this.props.metaData.fields,
       this.props.fieldsets
     );
     const fieldOptsByNameMap = keyBy(this.props.metaData.fields, 'name');
 
     return fieldsets.map(({ header, fields, getDisplayOptions }) => {
       const renderedFields = fields.map(fieldName => this.renderField(
-        this.props.getFieldComponent(fieldOptsByNameMap[fieldName]), 
+        this.props.getFieldComponent(fieldOptsByNameMap[fieldName]),
         fieldOptsByNameMap[fieldName],
         getDisplayOptions(fieldName)
       ));

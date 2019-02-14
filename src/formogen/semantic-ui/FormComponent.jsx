@@ -51,6 +51,7 @@ FormComponent.defaultProps = {
 };
 export function FormComponent(props) {
   const { submitComponent: SubmitComponent } = props;
+
   return (
     <SUIForm loading={ props.loading } onSubmit={ () => props.onSubmit() }>
       { props.isTitleVisible && props.title
