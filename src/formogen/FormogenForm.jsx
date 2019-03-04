@@ -41,6 +41,8 @@ export class FormogenForm extends Component {
 
     getFieldComponent: PropTypes.func.isRequired,
     getFormComponent: PropTypes.func.isRequired,
+
+    closeModalCallback: PropTypes.func
   };
   static defaultProps = {
     errorsFieldMap: {},
@@ -116,8 +118,10 @@ export class FormogenForm extends Component {
     return <FieldComponent { ...mergedOpts } />;
   }
 
-  componentDidMount = () => this.props.actions.bootstrap()
-  componentWillUnmount = () => this.props.actions.cleanup()
+  componentDidMount = () => this.props.actions.bootstrap();
+  componentWillUnmount = () => this.props.actions.cleanup();
   
-  handleSubmit = () => this.props.actions.submit();
+  handleSubmit = () => {
+    this.props.actions.submit();
+  };
 }

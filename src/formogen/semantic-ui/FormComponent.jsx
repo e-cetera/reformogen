@@ -77,6 +77,9 @@ export function FormComponent(props) {
         <SubmitComponent
           type='submit'
           content='Submit'
+          style={ {
+            backgroundColor: '#babbbc'
+          } }
           fluid={ true }
 
           onSubmit={ props.onSubmit }
