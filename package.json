@@ -1,6 +1,6 @@
 {
   "name": "reformogen",
-  "version": "0.3.6",
+  "version": "0.3.7-alpha.0",
   "private": false,
   "license": "MIT",
   "main": "build/index.js",
@@ -62,7 +62,7 @@
     "react-measure": "^2.1.2",
     "react-redux": "^5.0.7",
     "react-router-redux": "^5.0.0-alpha.9",
-    "react-select": "^2.1.1",
+    "react-select": "^2.4.2",
     "react-times": "^3.1.10",
     "react-virtualized": "^9.20.1",
     "redux": "^4.0.0",
