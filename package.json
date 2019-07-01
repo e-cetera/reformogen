@@ -1,6 +1,6 @@
 {
   "name": "reformogen",
-  "version": "0.3.8",
+  "version": "0.3.9-alpha",
   "private": false,
   "license": "MIT",
   "main": "build/index.js",
