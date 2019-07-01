@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { isEmpty } from 'lodash';
 import { Form } from 'semantic-ui-react';
-import { SelectBase } from 'react-select';
+// import { SelectBase } from 'react-select';
+import SelectBase from 'react-select';
 
 import propTypes from '../../fieldPropTypes';
 import { FieldLabel } from '../FieldLabel';
@@ -23,7 +24,7 @@ export class AsyncRelatedField extends React.Component {
     isMulti: false,
     loadOptions: payload => // eslint-disable-next-line
       console.info(`AsyncRelatedField.loadOptions(${JSON.stringify(payload)})`),
-  
+
     getOptionLabel: ({ name, title }) => name || title,
     getOptionValue: ({ id }) => id,
   };
@@ -41,8 +42,8 @@ export class AsyncRelatedField extends React.Component {
     };
   }
 
-  handleChange = value => this.props.onChange(null, { 
-    name: this.props.name, 
+  handleChange = value => this.props.onChange(null, {
+    name: this.props.name,
     value: value
   });
 
@@ -60,7 +61,7 @@ export class AsyncRelatedField extends React.Component {
           ref={ self => this.select = self }
           inputId={ `AsyncRelatedField-${this.props.formId}-${this.props.name}` }
           options={ this.props.options }
-          
+
           inputValue={ this.state.search }
           placeholder={ this.props.placeholder }
           value={ this.props.value }
@@ -71,13 +72,13 @@ export class AsyncRelatedField extends React.Component {
           isLoading={ this.state.isLoading }
           isRtl={ this.props.isRtl }
           isMulti={ this.props.isMulti }
-          
+
           hideSelectedOptions={ false }
 
           getOptionLabel={ this.props.getOptionLabel }
           getOptionValue={ this.props.getOptionValue }
-  
-          onChange={ this.handleChange } 
+
+          onChange={ this.handleChange }
           onMenuClose={ this.handleMenuClose }
           onMenuOpen={ this.handleMenuOpen }
           onInputChange={ this.handleInputChange }
@@ -131,18 +132,18 @@ export class AsyncRelatedField extends React.Component {
   async loadOptions() {
     const { loadOptions } = this.props;
 
-    if (this.state.isLoading) 
+    if (this.state.isLoading)
       return;
-    
+
     // eslint-disable-next-line
     await this.setState({ isLoading: true });
 
-    await loadOptions({ 
-      formId: this.props.formId,  
-      searchText: this.state.search, 
+    await loadOptions({
+      formId: this.props.formId,
+      searchText: this.state.search,
       fieldName: this.props.name,
       url: this.props.data,
-      callback: async () => { 
+      callback: async () => {
         // eslint-disable-next-line
         await this.setState({ isLoading: false });
       },
@@ -150,7 +151,7 @@ export class AsyncRelatedField extends React.Component {
   }
 
   componentDidMount = async () => {
-    // we need this bullshit here because react-select does not trigger 
+    // we need this bullshit here because react-select does not trigger
     // onMenuScrollToBottom for the FIRST time it's being rendered
     await this.loadOptions();
   }
