@@ -24,6 +24,7 @@ function DefaultSubmitComponent(props) {
 FormComponent.displayName = 'FormComponent';
 FormComponent.propTypes = {
   loading: PropTypes.bool.isRequired,
+  loaderHeight: PropTypes.number,
 
   title: PropTypes.string,
   isTitleVisible: PropTypes.bool,
@@ -43,6 +44,7 @@ FormComponent.propTypes = {
 };
 FormComponent.defaultProps = {
   loading: false,
+  loaderHeight: 150,
   title: '',
   isTitleVisible: true,
   submitComponent: DefaultSubmitComponent,
@@ -54,9 +56,10 @@ FormComponent.defaultProps = {
 export function FormComponent(props) {
   const { submitComponent: SubmitComponent } = props;
 
-  return this.props.loading ? (
+  return props.loading ? (
     <Segment
-      loading={ this.props.loading }
+      loading={ props.loading }
+      style={ { height: props.loaderHeight } }
       basic={ true }
     />
   ) : (
