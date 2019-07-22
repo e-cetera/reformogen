@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Header, Form as SUIForm, Grid } from 'semantic-ui-react';
+import {
+  Button, Header, Form as SUIForm, Grid, Segment
+} from 'semantic-ui-react';
 import { isEmpty } from 'lodash';
 
 import { NonFieldErrorsList } from './NonFieldErrorsList';
@@ -52,8 +54,13 @@ FormComponent.defaultProps = {
 export function FormComponent(props) {
   const { submitComponent: SubmitComponent } = props;
 
-  return (
-    <SUIForm loading={ props.loading } onSubmit={ () => props.onSubmit() }>
+  return this.props.loading ? (
+    <Segment
+      loading={ this.props.loading }
+      basic={ true }
+    />
+  ) : (
+    <SUIForm onSubmit={ () => props.onSubmit() }>
       { props.isTitleVisible && props.title
         ? <Header as='h2' dividing={ true }>{ props.title }</Header>
         : null
