@@ -1,4 +1,5 @@
 export { AutocompleteChoiceField } from './AutocompleteChoiceField';
+export { AutocompleteMultipleChoiceField } from './AutocompleteMultipleChoiceField';
 export { BooleanField } from './BooleanField';
 export { CharField } from './CharField';
 export { DateField } from './DateField';
