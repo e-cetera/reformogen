@@ -5,7 +5,7 @@ import { Form } from 'semantic-ui-react';
 
 export function HiddenField(props) {
   return (
-    <Form.Field>
+    <Form.Field style={ { height: 0, display: 'none' } }>
       <Form.Input
         name={ props.name }
         value={ props.value }
