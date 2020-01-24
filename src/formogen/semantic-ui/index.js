@@ -29,13 +29,15 @@ export const suiFieldComponentMap = {
 
   InlineForeignKeyField: fields.InlineForeignKeyField,
   InlineManyToManyField: fields.InlineManyToManyField,
+
+  ColorField: fields.ColorField,
 };
 
 /**
  * 
  * @param {*} param0 
  */
-export function getFieldComponentForType({ type, choices, data }) {
+export function getFieldComponentForType({ type, choices, data, widget }) {
   if (choices)
     return suiFieldComponentMap['ChoiceField']; 
 
@@ -45,6 +47,10 @@ export function getFieldComponentForType({ type, choices, data }) {
 
   if (type === 'ManyToManyField' && !isString(data))
     return suiFieldComponentMap.InlineManyToManyField;
+
+  if (widget === 'colorpicker') {
+    return suiFieldComponentMap.ColorField;
+  }
 
   if(!suiFieldComponentMap[type])
     return suiFieldComponentMap.GenericField;

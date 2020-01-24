@@ -2,6 +2,7 @@ export { AutocompleteChoiceField } from './AutocompleteChoiceField';
 export { AutocompleteMultipleChoiceField } from './AutocompleteMultipleChoiceField';
 export { BooleanField } from './BooleanField';
 export { CharField } from './CharField';
+export { ColorField } from './ColorField';
 export { HiddenField } from './HiddenField';
 export { DateField } from './DateField';
 export { DateTimeField } from './DateTimeField';
