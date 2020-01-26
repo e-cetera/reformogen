@@ -18,23 +18,33 @@ export class AutocompleteMultipleChoiceField extends Component {
     multiValues: []
   };
 
+  componentDidMount() {
+    const { value } = this.props;
+
+    if (value.length) {
+      this.setState({
+        multiValues: this.prepareForRendering(value)
+      });
+    }
+  }
+
   onAddItemToState = value => {
     this.setState({
       multiValues: value
     });
   };
 
+  prepareForRendering = array => {
+    return array.map(choice => ({
+      id: choice[0],
+      name: choice[1].length ? choice[1] : choice[0].toUpperCase()
+    }));
+  };
+
   render() {
     const { multiValues } = this.state;
     const { choices } = this.props;
-    const choicesArr = [];
-
-    choices.forEach(choice => {
-      choicesArr.push({
-        id: choice[0],
-        name: choice[1].length ? choice[1] : choice[0].toUpperCase()
-      });
-    });
+    const choicesArr = this.prepareForRendering(choices);
 
     return <AutocompleteChoiceField
       { ...this.props }

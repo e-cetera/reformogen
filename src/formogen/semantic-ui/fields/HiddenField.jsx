@@ -9,7 +9,6 @@ export function HiddenField(props) {
       <Form.Input
         name={ props.name }
         value={ props.value }
-        onChange={ props.onChange }
         type='hidden'
       />
     </Form.Field>
@@ -18,6 +17,5 @@ export function HiddenField(props) {
 
 HiddenField.propTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.string,
-  onChange: PropTypes.func
+  value: PropTypes.string
 };
