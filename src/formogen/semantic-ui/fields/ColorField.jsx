@@ -35,6 +35,10 @@ export function ColorField(props) {
     setIsOpened(false);
   }, []);
 
+  const handleChange = useCallback((color) => {
+    props.onChange(color.hex);
+  }, []);
+
   return (
     <Form.Field
       className="ColorField"
@@ -53,7 +57,7 @@ export function ColorField(props) {
           <div className="ColorField_Cover" onClick={ handleClose } />
           <SketchPicker
             color={ props.value }
-            onChangeComplete={ props.onChange }
+            onChange={ handleChange }
           />
         </div>
       ) : null }
