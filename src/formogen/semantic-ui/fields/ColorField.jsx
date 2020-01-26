@@ -12,6 +12,7 @@ import './ColorField.css';
 
 
 ColorField.propTypes = {
+  name: PropTypes.string.isRequired,
   value: PropTypes.string,
   errors: errorsType,
 
@@ -36,7 +37,7 @@ export function ColorField(props) {
   }, []);
 
   const handleChange = useCallback((color) => {
-    props.onChange(color.hex);
+    props.onChange({}, { name: props.name, value: color.hex });
   }, []);
 
   return (
