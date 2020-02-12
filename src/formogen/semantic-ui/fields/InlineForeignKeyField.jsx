@@ -42,9 +42,9 @@ InlineForeignKeyField.defaultProps = {
   getOptionValue: ({ id }) => id,
 };
 export function InlineForeignKeyField(props) {
-  const handleChange = ({ id }) => props.onChange(null, { 
-    name: props.name, 
-    value: id || null
+  const handleChange = (value) => props.onChange(null, {
+    name: props.name,
+    value: (value && value.id) || null
   });
 
   return (
@@ -64,7 +64,7 @@ export function InlineForeignKeyField(props) {
         options={ props.data }
         placeholder={ props.placeholder }
         simpleValue={ true }
-        
+
         value={ props.data.filter(({ id }) => props.value === id ) }
 
         inputProps={ { type: 'react-type' } }
