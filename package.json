@@ -89,7 +89,8 @@
   "scripts": {
     "build": "babel src -d build --copy-files",
     "clear": "rimraf build",
-    "prepublishOnly": "run-s build"
+    "prepublishOnly": "run-s build",
+    "storybook": "start-storybook -p 6006 -c .storybook"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",

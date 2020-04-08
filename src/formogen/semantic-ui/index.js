@@ -30,6 +30,8 @@ export const suiFieldComponentMap = {
   InlineForeignKeyField: fields.InlineForeignKeyField,
   InlineManyToManyField: fields.InlineManyToManyField,
 
+  AutocompleteMultipleChoiceField: fields.AutocompleteMultipleChoiceField,
+
   ColorField: fields.ColorField,
 };
 
@@ -38,8 +40,13 @@ export const suiFieldComponentMap = {
  * @param {*} param0 
  */
 export function getFieldComponentForType({ type, choices, data, widget }) {
-  if (choices)
+  if (choices) {
+    if (type === 'MultipleChoiceField') {
+      return suiFieldComponentMap['AutocompleteMultipleChoiceField'];
+    }
+
     return suiFieldComponentMap['ChoiceField']; 
+  }
 
   // opts.data can be a string or a list; string treats as a url to DataSet
   if (type === 'ForeignKey' && !isString(data))
