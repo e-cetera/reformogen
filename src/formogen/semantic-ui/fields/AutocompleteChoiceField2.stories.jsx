@@ -25,7 +25,7 @@ const Example = () => {
         displayOptions={ { width: 1 } }
         // getOptionLabel={ ([, name]) => name }
         // getOptionValue={ ([id]) => id }
-        onChange={ (e, newValue) => setValue(newValue) }
+        onChange={ (e, { value: newValue }) => setValue(newValue) }
       />
       <hr />
       <pre>

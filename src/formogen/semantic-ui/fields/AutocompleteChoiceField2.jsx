@@ -55,13 +55,13 @@ const AutocompleteChoiceField = (props) => {
     ? (newValues) => {
       onChange(
         null,
-        newValues ? newValues.map((newValue) => newValue[0]) : null
+        { name, value: newValues ? newValues.map((newValue) => newValue[0]) : null }
       );
     }
     : (newValue) => {
       onChange(
         null,
-        newValue ? newValue[0] : null
+        { name, value: newValue ? newValue[0] : null }
       );
     };
 
