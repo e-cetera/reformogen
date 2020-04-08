@@ -1,5 +1,8 @@
-export { AutocompleteChoiceField } from './AutocompleteChoiceField';
-export { AutocompleteMultipleChoiceField } from './AutocompleteMultipleChoiceField';
+// export { AutocompleteChoiceField } from './AutocompleteChoiceField';
+// export { AutocompleteMultipleChoiceField } from './AutocompleteMultipleChoiceField';
+export { AutocompleteChoiceField } from './AutocompleteChoiceField2';
+export { AutocompleteMultipleChoiceField } from './AutocompleteMultipleChoiceField2';
+
 export { BooleanField } from './BooleanField';
 export { CharField } from './CharField';
 export { ColorField } from './ColorField';
